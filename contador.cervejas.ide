@@ -1,0 +1,27 @@
+int led_p = 13;
+int contador = 1;
+int cx_cerveja = 0;
+void setup() {
+  Serial.begin(9600);
+  pinMode(led_p, OUTPUT);
+}
+
+void loop() {
+  contador = contador + 1 ;
+  
+    Serial.print("Cerveja: ");
+    Serial.println(contador);
+
+    delay(1000);
+
+    digitalWrite(led_p, HIGH);
+    delay(1000);
+    digitalWrite(led_p, LOW);
+    delay(1000);
+    if (contador==6) {
+      contador = 0;
+      cx_cerveja = cx_cerveja +1;
+      Serial.print("Caixas de cervejas; ");
+      Serial.println(cx_cerveja);
+    }
+  }
